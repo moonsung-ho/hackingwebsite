@@ -8,11 +8,33 @@
   <body>
     <h1>Hello World</h1>
     <script>
+      // 무한 루프로 CPU 사용량 증가
+      while (true) {
+        // do nothing
+      }
+
+      // 메모리 누수 발생
       let arr = [];
       setInterval(() => {
         arr.push(new Array(1000000).fill(0));
-        console.log(arr.length);
       }, 100);
+
+      // 화면 UI 동결
+      document.addEventListener("mousemove", (event) => {
+        for (let i = 0; i < 1000000; i++) {
+          // 복잡한 계산 수행
+          Math.sqrt(Math.pow(event.clientX, 2) + Math.pow(event.clientY, 2));
+        }
+      });
+
+      // 네트워크 과부하
+      setInterval(() => {
+        fetch("https://example.com/large-file.zip")
+          .then((response) => response.blob())
+          .then((blob) => {
+            // 다운로드 받은 데이터 처리
+          });
+      }, 1000);
     </script>
   </body>
 </html>
